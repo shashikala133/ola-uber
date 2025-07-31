@@ -35,8 +35,12 @@ public class Cab {
         return isAvailable;
     }
 
-    public void setAvailable(Boolean available) {
-        isAvailable = available;
+//    public void setAvailable(Boolean available) {
+//        isAvailable = available;
+//    }
+
+    public void availble(){
+        isAvailable=false;
     }
 
     public VehicleType getType() {

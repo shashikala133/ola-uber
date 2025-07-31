@@ -12,12 +12,12 @@ public class Booking {
     private double fare;
     private BookingStatus status;
 
-    public Booking(Rider rider, Cab cab, Location pickUpLocation, Location dropLocation, LocalDateTime bookingTime) {
+    public Booking(Rider rider, Cab cab, Location pickUpLocation, Location dropLocation) {
         this.rider = rider;
         this.cab = cab;
         this.pickUpLocation = pickUpLocation;
         this.dropLocation = dropLocation;
-        this.bookingTime = bookingTime;
+        this.bookingTime = LocalDateTime.now();
     }
 
     public Rider getRider() {
