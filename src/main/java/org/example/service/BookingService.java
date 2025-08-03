@@ -41,13 +41,21 @@ public class BookingService {
         return booking;
     }
 
-    public void startRide(Booking booking){
+    public void startRide(Booking booking, String otp){
+        if(!booking.getOtp().equals(otp)){
+            System.out.println("ride cannot be started otp is invalid");
+            return;
+        }
        booking.setStatus(BookingStatus.STARTED);
        booking.setRideStartTime(LocalDateTime.now());
         System.out.println("ride started");
     }
 
     public void endRide(Booking booking){
+        if(booking.getStatus()!=BookingStatus.STARTED){
+            System.out.println("ride hasnt started yet");
+            return;
+        }
         booking.setRideEndTime(LocalDateTime.now());
         booking.setStatus(BookingStatus.ENDED);
         double finalFare= pricingStrategy.calculatePricePerVehicleType(booking.getCab().getType(),booking.getPickUpLocation(),booking.getDropLocation());

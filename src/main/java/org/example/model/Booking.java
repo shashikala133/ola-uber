@@ -13,12 +13,14 @@ public class Booking {
     private LocalDateTime rideEndTime;
     private double fare;
     private BookingStatus status;
+    private final String otp;
 
     public Booking(Rider rider, Cab cab, Location pickUpLocation, Location dropLocation, double fare) {
         this.rider = rider;
         this.cab = cab;
         this.pickUpLocation = pickUpLocation;
         this.dropLocation = dropLocation;
+        this.otp = generateOtp();
         this.bookingTime = LocalDateTime.now();
         this.fare=fare;
     }
@@ -73,6 +75,15 @@ public class Booking {
 
     public void setRideEndTime(LocalDateTime rideEndTime) {
         this.rideEndTime = rideEndTime;
+    }
+
+    public String generateOtp(){
+        int otp=1000+  (int) (Math.random()*9000);
+        return String.valueOf(otp);
+    }
+
+    public String getOtp() {
+        return otp;
     }
 
     @Override
