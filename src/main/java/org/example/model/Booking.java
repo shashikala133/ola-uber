@@ -9,15 +9,18 @@ public class Booking {
     private final Location pickUpLocation;
     private final Location dropLocation;
     private final LocalDateTime bookingTime;
+    private LocalDateTime rideStartTime;
+    private LocalDateTime rideEndTime;
     private double fare;
     private BookingStatus status;
 
-    public Booking(Rider rider, Cab cab, Location pickUpLocation, Location dropLocation) {
+    public Booking(Rider rider, Cab cab, Location pickUpLocation, Location dropLocation, double fare) {
         this.rider = rider;
         this.cab = cab;
         this.pickUpLocation = pickUpLocation;
         this.dropLocation = dropLocation;
         this.bookingTime = LocalDateTime.now();
+        this.fare=fare;
     }
 
     public Rider getRider() {
@@ -54,5 +57,36 @@ public class Booking {
 
     public void setStatus(BookingStatus status) {
         this.status = status;
+    }
+
+    public LocalDateTime getRideStartTime() {
+        return rideStartTime;
+    }
+
+    public void setRideStartTime(LocalDateTime rideStartTime) {
+        this.rideStartTime = rideStartTime;
+    }
+
+    public LocalDateTime getRideEndTime() {
+        return rideEndTime;
+    }
+
+    public void setRideEndTime(LocalDateTime rideEndTime) {
+        this.rideEndTime = rideEndTime;
+    }
+
+    @Override
+    public String toString() {
+        return "Booking{" +
+                "rider=" + rider +
+                ", cab=" + cab +
+                ", pickUpLocation=" + pickUpLocation +
+                ", dropLocation=" + dropLocation +
+                ", bookingTime=" + bookingTime +
+                ", rideStartTime=" + rideStartTime +
+                ", rideEndTime=" + rideEndTime +
+                ", fare=" + fare +
+                ", status=" + status +
+                '}';
     }
 }

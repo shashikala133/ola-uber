@@ -17,4 +17,12 @@ public class VehicleFare {
         this.vehicleType = vehicleType;
         this.estimatedPrice = estimatedPrice;
     }
+
+    @Override
+    public String toString() {
+        return "VehicleFare{" +
+                "vehicleType=" + vehicleType +
+                ", estimatedPrice=" + estimatedPrice +
+                '}';
+    }
 }

@@ -46,4 +46,15 @@ public class Cab {
     public VehicleType getType() {
         return type;
     }
+
+    @Override
+    public String toString() {
+        return "Cab{" +
+                "id='" + id + '\'' +
+                ", driverName='" + driverName + '\'' +
+                ", location=" + location +
+                ", isAvailable=" + isAvailable +
+                ", type=" + type +
+                '}';
+    }
 }
